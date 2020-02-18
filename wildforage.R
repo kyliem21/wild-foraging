@@ -12,13 +12,15 @@ library(tidyverse)
 library(stringr)
 library(plyr)
 
+
+
+### dataframe manipulations - adding pilot subjects and runs
 subjects <- c("WILD_P01","WILD_P02","WILD_P03","WILD_P04","WILD_P05","WILD_P05","WILD_P06","WILD_P07","WILD_P08")
 runs <- c("deer_1","crow_2","shrub_3","water_4","deer_5","crow_6","shrub_7","water_8")
 water <- read.csv("Desktop/Archive/WILD_P03/WILD_P03_water_4/water_locations.csv")
 shrub <- read.csv("Desktop/Archive/WILD_P03/WILD_P03_shrub_3/bush_locations.csv")
 crow <- read.csv("Desktop/Archive/WILD_P03/WILD_P03_crow_2/crow_locations.csv")
 
-### dataframe manipulations
 masterdf <- data.frame()
 water <- filter(water, trial==1)
 shrub <- filter(shrub, trial==1)
