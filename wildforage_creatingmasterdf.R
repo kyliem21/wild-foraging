@@ -1,4 +1,4 @@
-# Code to analyze behavioral trajectory data from pilot subjects in foraging task
+# Code to create master df
 
 library(data.table)
 library(trajr)
@@ -100,6 +100,11 @@ for (s in subjects){
     finalmasterdf <-rbind(finalmasterdf,intermediate)
   }
 }
+
+# Sort by vector name [z] then [x]
+finalmasterdf <- finalmasterdf[
+  with(finalmasterdf, order(finalmasterdf$subject, finalmasterdf$runorder,finalmasterdf$time)),
+  ]
 
 
 write.csv(finalmasterdf,"Desktop/Archive/MASTERDF.csv", row.names = FALSE)
