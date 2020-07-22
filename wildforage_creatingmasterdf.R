@@ -108,3 +108,12 @@ finalmasterdf <- finalmasterdf[
 
 
 write.csv(finalmasterdf,"Desktop/Archive/MASTERDF.csv", row.names = FALSE)
+
+
+
+
+#Creating water condition database
+waterdf <- filter(finalmasterdf, condition=="water")
+waterdf$waterorder <- ifelse(waterdf$trialorder < 5, 1, 2)
+write.csv(waterdf,"Desktop/Archive/WATERCONDDF.csv", row.names = FALSE)
+
